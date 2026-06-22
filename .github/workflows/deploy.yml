@@ -29,6 +29,6 @@ jobs:
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v3
         with:
-          app-name: ${{ masripadafeatureflag }}
+          app-name: '[masripadafeatureflag]'
           publish-profile: ${{ secrets.masripadafeatureflag_PUBLISH_PROFILE }}
           package: ./build
