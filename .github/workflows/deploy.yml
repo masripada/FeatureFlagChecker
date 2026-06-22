@@ -21,7 +21,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build React app
         run: npm run build
@@ -29,6 +29,6 @@ jobs:
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v3
         with:
-          app-name: ${{ secrets.masripadafeatureflag}}
+          app-name: '[masripadafeatureflag]'
           publish-profile: ${{ secrets.masripadafeatureflag_PUBLISH_PROFILE }}
           package: ./build
