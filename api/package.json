@@ -2,12 +2,8 @@
   "name": "feature-flag-checker-api",
   "version": "1.0.0",
   "description": "Azure Functions HTTP trigger for Feature Flag Checker",
-  "main": "src/functions/*.js",
   "scripts": {
     "start": "func start"
-  },
-  "dependencies": {
-    "@azure/functions": "^4.0.0"
   },
   "engines": {
     "node": ">=18"
