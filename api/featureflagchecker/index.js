@@ -126,7 +126,7 @@ const HTML = `<!DOCTYPE html>
           + '<div class="result-status">' + type + '</div>'
           + '</div></div>'
           + '<div class="result-body">' + data.message + '</div>'
-          + '<div class="result-meta"><div class="meta-dot"></div>Responded by Azure Functions &middot; ' + new Date().toLocaleTimeString() + '</div>'
+          
           + '</div>';
       } catch(e) {
         out.innerHTML = '<div class="result error">'
