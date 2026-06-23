@@ -2,7 +2,7 @@ const FLAGS = {
   SECURITY: {
     name: "Security Controls",
     enabled: true,
-    reason: "All penetration tests passed and risk level is LOW. Security controls are active across all environments.",
+    reason: "All penetration tests have passed and risk level is LOW. Security controls are active across all environments.",
   },
   PERFORMANCE: {
     name: "Performance Optimizer",
