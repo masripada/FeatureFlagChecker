@@ -26,8 +26,8 @@ jobs:
       - name: Build React app
         run: npm run build
 
-      - name: Deploy to Azure Function App
-        uses: azure/functions-action@v1
+      - name: Deploy to Azure App Service
+        uses: azure/webapps-deploy@v3
         with:
           app-name: 'masripadafeatureflag'
           publish-profile: ${{ secrets.masripadafeatureflag_PUBLISH_PROFILE }}
