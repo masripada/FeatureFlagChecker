@@ -5,7 +5,9 @@ import FeatureRow from "./FeatureRow";
 import RulesModal from "./RulesModal";
 import EditModal from "./EditModal";
 
-const API_ENDPOINT = "/api/GetFeatureFlags";
+const API_ENDPOINT =
+  process.env.REACT_APP_FUNCTION_URL ||
+  "https://masripadafeatureflag.azurewebsites.net/api/GetFeatureFlags";
 
 export default function Dashboard({ admin, onLogout }) {
   const [features, setFeatures] = useState([]);

@@ -2,8 +2,13 @@
   "name": "feature-flag-checker-api",
   "version": "1.0.0",
   "description": "Azure Functions HTTP triggers for Feature Flag Checker",
+  "main": "src/functions/*.js",
   "scripts": {
-    "start": "func start"
+    "start": "func start",
+    "test": "echo \"No tests yet\""
+  },
+  "dependencies": {
+    "@azure/functions": "^4.0.0"
   },
   "engines": {
     "node": ">=18"
