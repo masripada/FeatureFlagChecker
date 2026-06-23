@@ -17,17 +17,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '18'
 
       - name: Install dependencies
-        run: npm install
-
-      - name: Build React app
-        run: npm run build
+        run: cd api && npm install --omit=dev
 
       - name: Deploy to Azure Function App
         uses: azure/functions-action@v1
         with:
           app-name: 'masripadafeatureflag'
           publish-profile: ${{ secrets.masripadafeatureflag_PUBLISH_PROFILE }}
-          
+          package: ./api
