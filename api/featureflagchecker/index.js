@@ -89,8 +89,8 @@ const HTML = `<!DOCTYPE html>
           <label for="feature">Select Feature</label>
           <select id="feature" onchange="onSelect()">
             <option value="">— Choose a feature —</option>
-            <option value="DASHBOARD">Analytics Dashboard</option>
             <option value="SECURITY">Security Controls</option>
+            <option value="DASHBOARD">Analytics Dashboard</option>
             <option value="PERFORMANCE">Performance Optimizer</option>
             <option value="COMPLIANCE">Compliance Engine</option>
           </select>
