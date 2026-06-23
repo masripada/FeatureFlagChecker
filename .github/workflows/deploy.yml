@@ -35,9 +35,12 @@ jobs:
       - name: Install server dependencies
         run: cd build && npm install --omit=dev
 
+      - name: Zip the build
+        run: cd build && zip -r ../app.zip .
+
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'masripadafeatureflag'
           publish-profile: ${{ secrets.masripadafeatureflag_PUBLISH_PROFILE }}
-          package: ./build
+          package: app.zip
