@@ -41,8 +41,9 @@ const HTML = `<!DOCTYPE html>
     .card-header{background:var(--dark);padding:24px 32px;border-bottom:3px solid var(--green);}
     .card-header h1{font-size:18px;font-weight:700;color:var(--white);margin-bottom:4px;}
     .card-header p{font-size:12px;color:rgba(255,255,255,0.45);}
-    .card-body{padding:32px;display:flex;flex-direction:column;gap:24px;}
+    .card-body{padding:32px;display:flex;flex-direction:column;gap:20px;}
     label{font-size:12px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:0.5px;display:block;margin-bottom:8px;}
+    input[type="text"]{width:100%;padding:11px 16px;border:1.5px solid var(--gray);border-radius:10px;font-size:14px;font-family:inherit;color:#888;background:#f9f9f9;cursor:not-allowed;}
     select{appearance:none;width:100%;padding:12px 44px 12px 16px;border:1.5px solid var(--gray);border-radius:10px;font-size:14px;font-family:inherit;color:var(--dark);background:var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23555' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 16px center;cursor:pointer;transition:border-color 0.15s;}
     select:focus{outline:none;border-color:var(--green);}
     button{background:var(--green);color:var(--white);border:none;border-radius:10px;padding:13px 24px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;width:100%;transition:background 0.15s;display:flex;align-items:center;justify-content:center;gap:8px;}
@@ -63,11 +64,6 @@ const HTML = `<!DOCTYPE html>
     .disabled .result-status{color:var(--red);}
     .error .result-status{color:#7a5500;}
     .result-body{padding:14px 20px;font-size:13px;color:#555;line-height:1.6;}
-    .result-meta{padding:10px 20px;font-size:11px;color:#555;border-top:1px solid var(--gray);background:rgba(0,0,0,0.02);display:flex;align-items:center;gap:6px;}
-    .meta-dot{width:6px;height:6px;border-radius:50%;}
-    .enabled .meta-dot{background:var(--green);}
-    .disabled .meta-dot{background:var(--red);}
-    .error .meta-dot{background:#E8A317;}
   </style>
 </head>
 <body>
@@ -83,16 +79,23 @@ const HTML = `<!DOCTYPE html>
         <p>Select a feature to check whether it is enabled or disabled via Azure Functions.</p>
       </div>
       <div class="card-body">
+
+        <div>
+          <label for="user">User</label>
+          <input type="text" id="user" value="Admin" disabled/>
+        </div>
+
         <div>
           <label for="feature">Select Feature</label>
           <select id="feature" onchange="onSelect()">
             <option value="">— Choose a feature —</option>
+            <option value="DASHBOARD">Analytics Dashboard</option>
             <option value="SECURITY">Security Controls</option>
             <option value="PERFORMANCE">Performance Optimizer</option>
             <option value="COMPLIANCE">Compliance Engine</option>
-            <option value="DASHBOARD">Analytics Dashboard</option>
           </select>
         </div>
+
         <button id="btn" onclick="checkFlag()" disabled>Check Status</button>
         <div id="result"></div>
       </div>
@@ -126,7 +129,6 @@ const HTML = `<!DOCTYPE html>
           + '<div class="result-status">' + type + '</div>'
           + '</div></div>'
           + '<div class="result-body">' + data.message + '</div>'
-          
           + '</div>';
       } catch(e) {
         out.innerHTML = '<div class="result error">'
