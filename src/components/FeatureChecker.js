@@ -23,9 +23,8 @@ const FEATURES = [
   },
 ];
 
-const FUNCTION_URL =
-  process.env.REACT_APP_FUNCTION_URL ||
-  "https://masripadafeatureflag.azurewebsites.net/api/CheckFeatureFlag";
+const FUNCTION_BASE =
+  "https://masripadafeatureflag.azurewebsites.net/api/HttpTrigger?code=J2KSdf0GiiXUa3EiUXtZQsohgFP2VdsS3oou3PLjf7YCAzFuUIj9mQ==";
 
 export default function FeatureChecker() {
   const [selectedId, setSelectedId] = useState("");
@@ -38,7 +37,7 @@ export default function FeatureChecker() {
     setResult(null);
 
     try {
-      const res = await fetch(`${FUNCTION_URL}?feature=${selectedId}`);
+      const res = await fetch(`${FUNCTION_BASE}&feature=${selectedId}`);
       const data = await res.json();
       setResult({ ...data, ok: true });
     } catch {
