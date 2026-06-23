@@ -1,4 +1,4 @@
-name: Build and Deploy React App to Azure App Service
+name: masripadafeatureflag
 
 on:
   push:
@@ -30,4 +30,4 @@ jobs:
         with:
           app-name: 'masripadafeatureflag'
           publish-profile: ${{ secrets.masripadafeatureflag_PUBLISH_PROFILE }}
-          package: ./build
+          
