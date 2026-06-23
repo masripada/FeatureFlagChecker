@@ -616,3 +616,93 @@ body {
   from { transform: translateX(40px); opacity: 0; }
   to   { transform: translateX(0); opacity: 1; }
 }
+
+/* ════════════════════════════════════════════
+   HTTP TRIGGER API BAR
+════════════════════════════════════════════ */
+.api-bar {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  border: 1px solid;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+.api-bar--loading  { background: #f0f7ff; border-color: #b8d8f5; color: #1a4fa0; }
+.api-bar--success  { background: #f0fff4; border-color: #b6da7a; color: #2d6a0a; }
+.api-bar--fallback { background: #fffbea; border-color: #f0d070; color: #7a5500; }
+
+.api-bar__icon { font-size: 16px; margin-top: 1px; flex-shrink: 0; }
+
+.api-bar__content { display: flex; flex-direction: column; gap: 4px; }
+
+.api-bar__label { font-weight: 600; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+
+.api-bar__status-code {
+  background: #e6f5d0;
+  color: #3a7d0a;
+  border: 1px solid #b6da7a;
+  border-radius: 4px;
+  padding: 1px 7px;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+}
+
+.api-bar__meta { color: inherit; opacity: 0.75; }
+
+.api-bar__endpoint {
+  background: rgba(0,0,0,0.07);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+}
+
+/* Spinner */
+.api-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(26,79,160,0.25);
+  border-top-color: #1a4fa0;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ════════════════════════════════════════════
+   SKELETON LOADER
+════════════════════════════════════════════ */
+.skeleton-wrap {
+  background: var(--dl-white);
+  border: 1px solid var(--dl-gray);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.skeleton-row {
+  display: flex;
+  gap: 16px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--dl-gray);
+  align-items: center;
+}
+.skeleton-row:last-child { border-bottom: none; }
+.skeleton-cell {
+  height: 14px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #ececec 25%, #f5f5f5 50%, #ececec 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  flex: 1;
+}
+.skeleton-cell--wide  { flex: 3; }
+.skeleton-cell--narrow { flex: 0.6; }
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

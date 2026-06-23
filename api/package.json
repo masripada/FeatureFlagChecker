@@ -1,0 +1,11 @@
+{
+  "name": "feature-flag-checker-api",
+  "version": "1.0.0",
+  "description": "Azure Functions HTTP triggers for Feature Flag Checker",
+  "scripts": {
+    "start": "func start"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
