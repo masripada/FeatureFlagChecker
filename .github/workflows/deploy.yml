@@ -1,4 +1,4 @@
-name: masripadafeatureflag
+name: Deploy to Azure Function App
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,17 +17,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '18'
 
       - name: Install dependencies
-        run: npm install
+        run: cd api && npm install --omit=dev
 
-      - name: Build React app
-        run: npm run build
-
-      - name: Deploy to Azure App Service
-        uses: azure/webapps-deploy@v3
+      - name: Deploy to Azure Function App
+        uses: azure/functions-action@v1
         with:
           app-name: 'masripadafeatureflag'
           publish-profile: ${{ secrets.masripadafeatureflag_PUBLISH_PROFILE }}
-          
+          package: ./api
