@@ -99,7 +99,7 @@ const HTML = `<!DOCTYPE html>
     </div>
   </main>
   <script>
-    const FUNCTION_URL = '/api/featureflagchecker';
+    const FUNCTION_URL = '/api/FeatureFlagChecker';
 
     function onSelect() {
       document.getElementById('btn').disabled = !document.getElementById('feature').value;
