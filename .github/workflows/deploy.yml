@@ -26,6 +26,15 @@ jobs:
       - name: Build React app
         run: npm run build
 
+      - name: Add server files to build
+        run: |
+          cp server.js build/server.js
+          cp server-package.json build/package.json
+          cp web.config build/web.config
+
+      - name: Install server dependencies
+        run: cd build && npm install --omit=dev
+
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v3
         with:
